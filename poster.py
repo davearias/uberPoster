@@ -1,5 +1,7 @@
 #!/usr/bin/python
 #https://raw.githubusercontent.com/paddywwoof/pi3d_book/master/programs/sprites01.py
+#crontab startup line: @reboot sleep 30 && /usr/bin/python3 /home/pi/uberPoster/poster.py >> /home/pi/uberPoster/crontab.log 2>&1
+
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 import pi3d
