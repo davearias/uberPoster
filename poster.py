@@ -119,9 +119,13 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     def log_message(self, format, *args):
         return
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-s.connect(("8.8.8.8", 80))
-ip = s.getsockname()[0]
-s.close()
+try:
+    s.connect(("8.8.8.8", 80))
+    ip = s.getsockname()[0]
+except Exception:
+    ip = '127.0.0.1'
+finally:
+    s.close()
 
 logger.info("Starting server at: %s:8000",ip)
 httpd = HTTPServer((ip, 8000), SimpleHTTPRequestHandler)
